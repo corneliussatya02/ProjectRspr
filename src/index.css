@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 350px;
+  padding: 35px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.login-box input:hover {
+  border-color: #2563eb;
+}
+
+.login-box h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.login-box button {
+  width: 100%;
+}
+
+.home-container {
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #2563eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar h2 {
+  color: white;
+}
+main {
+  padding: 40px;
+}
+
+main h1 {
+  margin-bottom: 10px;
+}
+
+main > p {
+  margin-bottom: 30px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+.card-image-container {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+.pasien-page {
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 0;
+  color: #777;
+  background: #ffff;
+  font-family: arial, sans-serif;
+}
+.pasien-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.9fr;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.pasien-form input {
+  width: 100%;
+  height: 35px;
+  padding: 8px;
+  border: 1px solid #8f8f8f;
+  border-radius: 5px;
+  outline: none;
+  font-size: 12px;
+}
+.pasien-form input:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+.pasien-form input::placeholder {
+  color: #777;
+  font-size: 11px;
+}
+.pasien-form .add-button {
+  width: 100%;
+  height: 35px;
+  margin-left: 0;
+  padding: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pasien-form .add-button:hover {
+  background: #218838;
+}
+.pasien-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+  background: white;
+}
+.pasien-table thead {
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.pasien-table th {
+  padding: 12px 8px;
+  background: white;
+  color: #777;
+  font-weight: bold;
+  text-align: left;
+}
+
+.pasien-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  overflow-wrap: anywhere;
+}
+
+.pasien-table th:nth-child(1),
+.pasien-table td:nth-child(1) {
+  width: 28%;
+}
+
+.pasien-table th:nth-child(2),
+.pasien-table td:nth-child(2) {
+  width: 30%;
+}
+.pasien-table th:nth-child(3),
+.pasien-table td:nth-child(3) {
+  width: 28%;
+}
+
+.pasien-table th:nth-child(4),
+.pasien-table td:nth-child(4) {
+  width: 14%;
+  text-align: center;
+}
+.pasien-table .delete-button {
+  margin-left: 0;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #dc3545;
+  color: white;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pasien-table .delete-button:hover {
+  background: #bd2130;
+}
+.empty-data {
+  text-align: center !important;
+  padding: 18px !important;
+  color: #888 !important;
+}
+
+@media (max-width: 650px) {
+  .pasien-page {
+    width: 95%;
+  }
+
+  .pasien-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pasien-table th,
+  .pasien-table td {
+    padding: 8px 4px;
+  }
+}
+footer {
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 10px;
+  padding: 20px;
+  background: #f4f6f9;
+  color: #888;
+}
