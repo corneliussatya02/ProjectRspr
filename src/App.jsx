@@ -202,11 +202,22 @@ function App() {
                 onChange={(e) => setAlamat(e.target.value)}
               />
 
-              <input
+              {/* <input
                 type="tel"
                 placeholder="KONTAK"
                 value={kontak}
                 onChange={(e) => setKontak(e.target.value)}
+              /> */}
+              <input
+                type="tel"
+                placeholder="KONTAK"
+                value={kontak}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^[0-9()+-]*$/.test(value)) setKontak(value);
+                  alert("Kontak hanya berisi angka, /, -, +, ()");
+                  return;
+                }}
               />
 
               <button type="submit" className="add-button">

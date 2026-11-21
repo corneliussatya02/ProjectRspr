@@ -229,10 +229,11 @@ main > p {
   text-align: center;
 }
 .pasien-table .delete-button {
-  margin-left: 0;
-  padding: 10x 15px;
-  border: none;
-  border-radius: 6px;
+  width: 100%;
+  padding: 8px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #8f8f8f;
   background: #dc3545;
   color: white;
   font-size: 11px;
