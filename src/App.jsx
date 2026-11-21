@@ -89,6 +89,10 @@ function App() {
       alert("Nama, alamat, dan kontak wajib diisi");
       return;
     }
+    if (!/^[0-9()+-]+$/.test(kontak.trim())) {
+      alert("Kontak hanya berisi angka, tanda kurung, +, dan -");
+      return;
+    }
 
     const newPatient = {
       id: Date.now(),
@@ -143,7 +147,6 @@ function App() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
           <button type="submit">Login</button>
         </form>
       </div>
@@ -194,31 +197,27 @@ function App() {
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
               />
-
               <input
                 type="text"
                 placeholder="ALAMAT"
                 value={alamat}
                 onChange={(e) => setAlamat(e.target.value)}
               />
-
-              {/* <input
+              <input
                 type="tel"
                 placeholder="KONTAK"
                 value={kontak}
                 onChange={(e) => setKontak(e.target.value)}
-              /> */}
-              <input
+              />
+              {/* <input
                 type="tel"
                 placeholder="KONTAK"
                 value={kontak}
                 onChange={(e) => {
                   const value = e.target.value;
                   if (/^[0-9()+-]*$/.test(value)) setKontak(value);
-                  alert("Kontak hanya berisi angka, /, -, +, ()");
-                  return;
                 }}
-              />
+              /> */}
 
               <button type="submit" className="add-button">
                 Tambah
