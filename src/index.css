@@ -56,6 +56,19 @@ button {
   color: white;
   cursor: pointer;
 }
+button,
+.navbar-menu a {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  align-items: center;
+}
 
 .login-box button {
   width: 100%;
@@ -72,11 +85,6 @@ button {
   padding: 20px 40px;
   background: #2563eb;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-.navbar-menu {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 .navbar h2 {
   color: white;
