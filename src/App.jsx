@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import logo from "./assets/Logo2.png";
 
 function App() {
   const navigate = useNavigate();
@@ -24,16 +25,16 @@ function App() {
   const [alamat, setAlamat] = useState("");
   const [kontak, setKontak] = useState("");
 
-  const semuaGambar = import.meta.glob(
-    "/src/assets/GambarHome/*.{png,jpg,jpeg,webp}",
-    {
-      eager: true,
-      import: "default",
-    },
-  );
-  const getGambar = (namafile) =>
-    semuaGambar[`/src/assets/GambarHome/${namafile}`];
-
+  const semuaGambar = import.meta.glob("/src/assets/**/*.{png,jpg,jpeg,webp}", {
+    eager: true,
+    import: "default",
+  });
+  const getGambar = (namafile) => {
+    return (
+      semuaGambar[`/src/assets/GambarHome/${namafile}`] ||
+      semuaGambar[`/src/assets/GambarAbout/${namafile}`]
+    );
+  };
   const cardData = [
     {
       id: 1,
@@ -52,6 +53,24 @@ function App() {
       title: "Layanan Farmasi",
       image: getGambar("Farmasi.jpg"),
       description: "Informasi Layanan Farmasi",
+    },
+  ];
+  const cardaboutData = [
+    {
+      id: 1,
+      title: "Sejarah Rumah Sakit Panti Rapih Yogyakarta:",
+      image: getGambar("About.jpg"),
+      description:
+        "Berawal dari misi pelayanan Katolik Romo Frans van Lith, SJ dan Romo Frans Strater, SJ sejak tahun 1914, Gereja Yogyakarta bersama Kongregasi Suster Carolus Borromeus (CB) dan dukungan dana keluarga Schmutzer membangun rumah sakit bernama Onder de Bogen. Pembangunannya dimulai pada 17 September 1928, diberkati pada 24 Agustus 1929, dan diresmikan oleh Sri Sultan Hamengku Buwono VIII pada 14 September 1929. Saat pendudukan Jepang (1943), namanya diubah oleh Mgr. Soegijapranata, SJ menjadi RS Panti Rapih dan sempat dijadikan rumah sakit militer sebelum akhirnya kembali ke pengelola asli. Hingga kini, RS Panti Rapih terus melayani seluruh lapisan masyarakat tanpa diskriminasi.",
+    },
+    {
+      id: 2,
+      title: "Direksi Rumah Sakit Panti Rapih Yogyakarta:",
+      image: getGambar("Direksi.jpg"),
+      description: `Direktur Utama : dr. Stephani Maria Nainggolan, M.Kes.
+      Direktur Medis : dr. Esdras Ardi Pramudita, DFIDN., M.Sc., MHPM., Sp.N, FAAN.
+      Direktur Keperawatan : Sr. Constansia Sri Hardjanti CB, M.Kep.Ns.
+      Direktur SDM dan Umum : dr. Dion Sulistyo, M.P.H.`,
     },
   ];
 
@@ -137,8 +156,10 @@ function App() {
   return (
     <div className="home-container">
       <header className="navbar">
-        <h2>PANTI RAPIH</h2>
-
+        <div className="navbar-brand">
+          <img src={logo} alt="Logo Panti Rapih" className="navbar-logo" />
+          <h2>PANTI RAPIH</h2>
+        </div>
         <div className="navbar-menu">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
@@ -166,10 +187,19 @@ function App() {
           <Route
             path="/about"
             element={
-              <>
-                <h1>halaman about</h1>
-                <p>selamat datang</p>
-              </>
+              <div className="about-container">
+                <h2>Tentang Kami</h2>
+                <div className="card-container-about">
+                  {cardaboutData.map((item) => (
+                    <Card
+                      key={item.id}
+                      title={item.title}
+                      image={item.image}
+                      description={item.description}
+                    />
+                  ))}
+                </div>
+              </div>
             }
           />
           <Route
